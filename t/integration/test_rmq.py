@@ -10,7 +10,10 @@ from case import ANY, Mock
 
 @pytest.fixture
 def connection(request):
-    host = 'localhost:%s' % os.environ.get('RABBITMQ_5672_TCP', '5672')
+    host = '%s:%s' % (
+        os.environ.get('RABBITMQ_HOST', 'localhost'),
+        os.environ.get('RABBITMQ_5672_TCP', '5672')
+    )
     vhost = getattr(request.config, "slaveinput", {}).get("slaveid", None)
     return amqp.Connection(host=host, vhost=vhost)
 
@@ -31,6 +34,7 @@ class test_rabbitmq_operations():
         self.connection.connect()
         self.channel = self.connection.channel()
         yield
+        self.channel.close()
         self.connection.close()
 
     @pytest.mark.parametrize(

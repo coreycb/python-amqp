@@ -88,6 +88,7 @@ class test_Channel:
             (30, 'text', spec.Queue.Declare[0], spec.Queue.Declare[1]),
             wait=spec.Channel.CloseOk,
         )
+        assert self.c.is_closing is False
         assert self.c.connection is None
 
     def test_on_close(self):
@@ -147,12 +148,10 @@ class test_Channel:
         )
 
     def test_exchange_declare__auto_delete(self):
-        with patch('amqp.channel.warn') as warn:
-            self.c.exchange_declare(
-                'foo', 'direct', False, True,
-                auto_delete=True, nowait=False, arguments={'x': 1},
-            )
-            warn.assert_called()
+        self.c.exchange_declare(
+            'foo', 'direct', False, True,
+            auto_delete=True, nowait=False, arguments={'x': 1},
+        )
 
     def test_exchange_delete(self):
         self.c.exchange_delete('foo')
