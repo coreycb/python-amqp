@@ -1,3 +1,9 @@
+python-amqp (2.5.0-2ubuntu1) UNRELEASED; urgency=medium
+
+  * d/gbp.conf: Update gbp configuration file.
+
+ -- Corey Bryant <corey.bryant@canonical.com>  Thu, 05 Dec 2019 15:20:51 -0500
+
 python-amqp (2.5.0-2) unstable; urgency=medium
 
   * Team upload.
