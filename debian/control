@@ -1,7 +1,8 @@
 Source: python-amqp
 Section: python
 Priority: optional
-Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
 Uploaders:
  Michael Fladischer <fladi@debian.org>,
  Thomas Goirand <zigo@debian.org>,
@@ -21,8 +22,8 @@ Build-Depends-Indep:
  python3-vine <!nocheck>,
 Standards-Version: 4.4.0
 Homepage: https://github.com/celery/py-amqp
-Vcs-Git: https://salsa.debian.org/python-team/modules/python-amqp.git
-Vcs-Browser: https://salsa.debian.org/python-team/modules/python-amqp
+Vcs-Git: https://git.launchpad.net/~ubuntu-server-dev/ubuntu/+source/python-amqp
+Vcs-Browser: https://git.launchpad.net/~ubuntu-server-dev/ubuntu/+source/python-amqp
 
 Package: python-amqp-doc
 Section: doc
